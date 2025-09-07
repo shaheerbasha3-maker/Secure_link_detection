@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
@@ -15,42 +16,52 @@ import {
   Video,
   Link
 } from 'lucide-react';
+import FeatureModal from './FeatureModal';
+import ThreatModal from './ThreatModal';
 
 const Features = () => {
+  const navigate = useNavigate();
+  const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
+  const [selectedThreat, setSelectedThreat] = useState<string | null>(null);
+  
   const mainFeatures = [
     {
       icon: <Scan className="w-8 h-8" />,
       title: "Multi-Format Analysis",
       description: "Analyze URLs, images, documents, videos, and any digital content for potential threats",
-      color: "bg-gradient-primary"
+      color: "bg-gradient-primary",
+      key: "multi-format-analysis"
     },
     {
       icon: <AlertTriangle className="w-8 h-8" />,
       title: "Real-time Threat Detection", 
       description: "Instant identification of phishing, malware, scams, and other cyber threats",
-      color: "bg-gradient-warning"
+      color: "bg-gradient-warning",
+      key: "real-time-threat-detection"
     },
     {
       icon: <Database className="w-8 h-8" />,
       title: "Comprehensive Domain Analysis",
       description: "Deep inspection of domain reputation, registration details, and security certificates",
-      color: "bg-gradient-secure"
+      color: "bg-gradient-secure",
+      key: "comprehensive-domain-analysis"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Risk Assessment Scoring",
       description: "Advanced algorithms provide detailed risk scores and actionable security recommendations",
-      color: "bg-gradient-primary"
+      color: "bg-gradient-primary",
+      key: "risk-assessment-scoring"
     }
   ];
 
   const supportedFormats = [
-    { icon: <Link className="w-6 h-6" />, name: "URLs & Links", desc: "Web addresses and hyperlinks" },
-    { icon: <Image className="w-6 h-6" />, name: "Images", desc: "JPG, PNG, GIF files" },
-    { icon: <FileText className="w-6 h-6" />, name: "Documents", desc: "PDF, DOC, XLS files" },
-    { icon: <Video className="w-6 h-6" />, name: "Videos", desc: "MP4, AVI, streaming links" },
-    { icon: <Globe className="w-6 h-6" />, name: "Web Content", desc: "HTML, CSS, JS files" },
-    { icon: <Lock className="w-6 h-6" />, name: "Encrypted Files", desc: "Password protected content" }
+    { icon: <Link className="w-6 h-6" />, name: "URLs & Links", desc: "Web addresses and hyperlinks", route: "urls" },
+    { icon: <Image className="w-6 h-6" />, name: "Images", desc: "JPG, PNG, GIF files", route: "images" },
+    { icon: <FileText className="w-6 h-6" />, name: "Documents", desc: "PDF, DOC, XLS files", route: "documents" },
+    { icon: <Video className="w-6 h-6" />, name: "Videos", desc: "MP4, AVI, streaming links", route: "videos" },
+    { icon: <Globe className="w-6 h-6" />, name: "Web Content", desc: "HTML, CSS, JS files", route: "web-content" },
+    { icon: <Lock className="w-6 h-6" />, name: "Encrypted Files", desc: "Password protected content", route: "encrypted" }
   ];
 
   const threatTypes = [
@@ -84,7 +95,11 @@ const Features = () => {
         {/* Main Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {mainFeatures.map((feature, index) => (
-            <Card key={index} className="shadow-card border-0 hover:shadow-glow transition-all duration-500 group">
+            <Card 
+              key={index} 
+              className="shadow-card border-0 hover:shadow-glow transition-all duration-500 group cursor-pointer"
+              onClick={() => setSelectedFeature(feature.key)}
+            >
               <CardHeader className="text-center pb-4">
                 <div className={`w-16 h-16 ${feature.color} rounded-xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300`}>
                   {feature.icon}
@@ -93,6 +108,9 @@ const Features = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-center">{feature.description}</p>
+                <div className="text-center mt-4">
+                  <Badge variant="outline" className="text-xs">Click to learn more</Badge>
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -110,13 +128,18 @@ const Features = () => {
             <CardContent>
               <div className="grid grid-cols-2 gap-4">
                 {supportedFormats.map((format, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors">
+                  <div 
+                    key={index} 
+                    className="flex items-center gap-3 p-3 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors cursor-pointer"
+                    onClick={() => navigate(`/analyze/${format.route}`)}
+                  >
                     <div className="p-2 bg-primary/10 rounded-lg text-primary">
                       {format.icon}
                     </div>
                     <div>
                       <h4 className="font-semibold text-sm">{format.name}</h4>
                       <p className="text-xs text-muted-foreground">{format.desc}</p>
+                      <Badge variant="outline" className="text-xs mt-1">Click to analyze</Badge>
                     </div>
                   </div>
                 ))}
@@ -134,9 +157,14 @@ const Features = () => {
             <CardContent>
               <div className="grid grid-cols-1 gap-3">
                 {threatTypes.map((threat, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 bg-destructive/5 border border-destructive/20 rounded-lg">
+                  <div 
+                    key={index} 
+                    className="flex items-center gap-3 p-3 bg-destructive/5 border border-destructive/20 rounded-lg cursor-pointer hover:bg-destructive/10 transition-colors"
+                    onClick={() => setSelectedThreat(threat)}
+                  >
                     <div className="w-2 h-2 bg-destructive rounded-full" />
                     <span className="font-medium">{threat}</span>
+                    <Badge variant="outline" className="text-xs ml-auto">Learn more</Badge>
                   </div>
                 ))}
               </div>
@@ -170,6 +198,18 @@ const Features = () => {
           </CardContent>
         </Card>
       </div>
+      
+      {/* Modals */}
+      <FeatureModal 
+        isOpen={!!selectedFeature} 
+        onClose={() => setSelectedFeature(null)} 
+        feature={selectedFeature || ''} 
+      />
+      <ThreatModal 
+        isOpen={!!selectedThreat} 
+        onClose={() => setSelectedThreat(null)} 
+        threatType={selectedThreat || ''} 
+      />
     </section>
   );
 };

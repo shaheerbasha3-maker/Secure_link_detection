@@ -1,0 +1,351 @@
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Textarea } from '@/components/ui/textarea';
+import { Progress } from '@/components/ui/progress';
+import { ArrowLeft, Upload, AlertTriangle, Shield, FileText, Image, Video, Link, Globe, Lock } from 'lucide-react';
+
+const FileAnalysis = () => {
+  const { fileType } = useParams();
+  const navigate = useNavigate();
+  const [input, setInput] = useState('');
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [results, setResults] = useState<any>(null);
+
+  const getFileTypeInfo = (type: string) => {
+    switch (type) {
+      case 'urls':
+        return {
+          icon: <Link className="w-8 h-8" />,
+          title: 'URL & Link Analysis',
+          description: 'Analyze web addresses and hyperlinks for security threats',
+          placeholder: 'Paste URLs here...\n\nExample:\nhttps://example.com\nhttps://suspicious-site.fake',
+          specificThreats: [
+            'Phishing landing pages',
+            'Malicious redirects',
+            'Drive-by downloads',
+            'Credential harvesting forms',
+            'Browser exploits'
+          ],
+          fileExtensions: ['http://', 'https://', 'ftp://']
+        };
+      case 'images':
+        return {
+          icon: <Image className="w-8 h-8" />,
+          title: 'Image File Analysis',
+          description: 'Scan image files for embedded malware and steganography',
+          placeholder: 'Paste image URLs or upload image files...\n\nSupported formats: JPG, PNG, GIF, BMP, TIFF',
+          specificThreats: [
+            'Steganography hiding malware',
+            'Embedded malicious scripts',
+            'EXIF data exploitation',
+            'Image-based phishing',
+            'Polyglot files'
+          ],
+          fileExtensions: ['.jpg', '.png', '.gif', '.bmp', '.tiff']
+        };
+      case 'documents':
+        return {
+          icon: <FileText className="w-8 h-8" />,
+          title: 'Document Analysis',
+          description: 'Examine documents for malicious content and vulnerabilities',
+          placeholder: 'Paste document URLs or describe documents...\n\nSupported: PDF, DOC, XLS, PPT, RTF',
+          specificThreats: [
+            'Macro-based malware',
+            'PDF JavaScript exploits',
+            'Document metadata leaks',
+            'Embedded executable files',
+            'Template injection attacks'
+          ],
+          fileExtensions: ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx']
+        };
+      case 'videos':
+        return {
+          icon: <Video className="w-8 h-8" />,
+          title: 'Video File Analysis',
+          description: 'Analyze video files and streaming links for security issues',
+          placeholder: 'Paste video URLs or streaming links...\n\nSupported: MP4, AVI, MOV, streaming URLs',
+          specificThreats: [
+            'Malicious codec exploits',
+            'Streaming service impersonation',
+            'Video container vulnerabilities',
+            'Subtitle file injection',
+            'Fake streaming sites'
+          ],
+          fileExtensions: ['.mp4', '.avi', '.mov', '.wmv', '.flv']
+        };
+      case 'web-content':
+        return {
+          icon: <Globe className="w-8 h-8" />,
+          title: 'Web Content Analysis',
+          description: 'Analyze HTML, CSS, and JavaScript files for malicious code',
+          placeholder: 'Paste web content URLs or code...\n\nSupported: HTML, CSS, JS, JSON, XML',
+          specificThreats: [
+            'Cross-site scripting (XSS)',
+            'Malicious JavaScript injection',
+            'CSS-based attacks',
+            'HTML form manipulation',
+            'Code obfuscation techniques'
+          ],
+          fileExtensions: ['.html', '.css', '.js', '.json', '.xml']
+        };
+      case 'encrypted':
+        return {
+          icon: <Lock className="w-8 h-8" />,
+          title: 'Encrypted File Analysis',
+          description: 'Analyze password-protected and encrypted content',
+          placeholder: 'Paste encrypted file URLs or information...\n\nSupported: Password-protected archives, encrypted documents',
+          specificThreats: [
+            'Ransomware encryption',
+            'Trojan-encrypted payloads',
+            'Cryptojacking scripts',
+            'Fake encryption software',
+            'Key recovery scams'
+          ],
+          fileExtensions: ['.zip', '.rar', '.7z', '.gpg', '.pgp']
+        };
+      default:
+        return {
+          icon: <FileText className="w-8 h-8" />,
+          title: 'File Analysis',
+          description: 'Analyze files for security threats',
+          placeholder: 'Paste content here...',
+          specificThreats: ['General security threats'],
+          fileExtensions: []
+        };
+    }
+  };
+
+  const fileInfo = getFileTypeInfo(fileType || '');
+
+  const simulateAnalysis = async () => {
+    if (!input.trim()) return;
+    
+    setIsAnalyzing(true);
+    setProgress(0);
+    setResults(null);
+
+    // Simulate progressive analysis
+    for (let i = 0; i <= 100; i += 10) {
+      setProgress(i);
+      await new Promise(resolve => setTimeout(resolve, 200));
+    }
+
+    // Generate mock results based on file type
+    const mockResults = {
+      riskScore: Math.floor(Math.random() * 100),
+      threatsDetected: Math.floor(Math.random() * 5),
+      fileInfo: {
+        type: fileInfo.title,
+        size: `${Math.floor(Math.random() * 1000) + 100} KB`,
+        format: fileInfo.fileExtensions[0] || 'Unknown'
+      },
+      threats: fileInfo.specificThreats.slice(0, Math.floor(Math.random() * 3) + 1),
+      recommendations: [
+        `Avoid interacting with ${fileType} files from untrusted sources`,
+        'Use updated antivirus software for additional protection',
+        'Verify the source and authenticity before proceeding',
+        'Consider using sandboxed environments for analysis'
+      ]
+    };
+
+    setResults(mockResults);
+    setIsAnalyzing(false);
+  };
+
+  const getRiskColor = (score: number) => {
+    if (score >= 80) return 'text-destructive';
+    if (score >= 60) return 'text-orange-500';
+    if (score >= 40) return 'text-yellow-500';
+    return 'text-primary';
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <div className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center gap-4">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={() => navigate('/')}
+              className="gap-2"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Main
+            </Button>
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                {fileInfo.icon}
+              </div>
+              <div>
+                <h1 className="text-xl font-bold">{fileInfo.title}</h1>
+                <p className="text-sm text-muted-foreground">{fileInfo.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 py-8">
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Input Section */}
+          <Card className="shadow-card border-0">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-3">
+                <Upload className="w-5 h-5" />
+                Submit {fileInfo.title.split(' ')[0]} for Analysis
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <Textarea
+                placeholder={fileInfo.placeholder}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                className="min-h-[200px] resize-none"
+              />
+              
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="secondary">Supported formats:</Badge>
+                {fileInfo.fileExtensions.map((ext, index) => (
+                  <Badge key={index} variant="outline">{ext}</Badge>
+                ))}
+              </div>
+
+              <Button 
+                onClick={simulateAnalysis}
+                disabled={!input.trim() || isAnalyzing}
+                className="w-full"
+                size="lg"
+              >
+                {isAnalyzing ? 'Analyzing...' : `Analyze ${fileInfo.title.split(' ')[0]}`}
+              </Button>
+
+              {isAnalyzing && (
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span>Analysis Progress</span>
+                    <span>{progress}%</span>
+                  </div>
+                  <Progress value={progress} className="w-full" />
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Results Section */}
+          <Card className="shadow-card border-0">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-3">
+                <Shield className="w-5 h-5" />
+                Analysis Results
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {!results && !isAnalyzing && (
+                <div className="text-center py-12 text-muted-foreground">
+                  Submit content above to see detailed security analysis results
+                </div>
+              )}
+
+              {results && (
+                <div className="space-y-6">
+                  {/* Risk Score */}
+                  <div className="text-center">
+                    <div className={`text-4xl font-bold ${getRiskColor(results.riskScore)}`}>
+                      {results.riskScore}/100
+                    </div>
+                    <p className="text-muted-foreground">Risk Score</p>
+                  </div>
+
+                  {/* File Info */}
+                  <Card>
+                    <CardContent className="pt-4">
+                      <h3 className="font-semibold mb-3">File Information</h3>
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <span className="text-muted-foreground">Type:</span>
+                          <p className="font-medium">{results.fileInfo.type}</p>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">Size:</span>
+                          <p className="font-medium">{results.fileInfo.size}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Detected Threats */}
+                  {results.threats.length > 0 && (
+                    <Card>
+                      <CardContent className="pt-4">
+                        <h3 className="font-semibold mb-3 flex items-center gap-2">
+                          <AlertTriangle className="w-4 h-4 text-destructive" />
+                          Detected Threats ({results.threats.length})
+                        </h3>
+                        <div className="space-y-2">
+                          {results.threats.map((threat: string, index: number) => (
+                            <div key={index} className="flex items-center gap-3 p-2 bg-destructive/5 border border-destructive/20 rounded">
+                              <div className="w-2 h-2 bg-destructive rounded-full" />
+                              <span className="text-sm">{threat}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* Recommendations */}
+                  <Card>
+                    <CardContent className="pt-4">
+                      <h3 className="font-semibold mb-3">Security Recommendations</h3>
+                      <ul className="space-y-2">
+                        {results.recommendations.map((rec: string, index: number) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <div className="w-2 h-2 bg-primary rounded-full mt-2" />
+                            <span className="text-sm text-muted-foreground">{rec}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Specific Threats Information */}
+        <Card className="mt-8 shadow-card border-0">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-3">
+              <AlertTriangle className="w-5 h-5 text-destructive" />
+              Common {fileInfo.title.split(' ')[0]} Threats
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {fileInfo.specificThreats.map((threat, index) => (
+                <div key={index} className="p-4 bg-destructive/5 border border-destructive/20 rounded-lg">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-2 h-2 bg-destructive rounded-full" />
+                    <h4 className="font-semibold text-sm">{threat}</h4>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    High-priority threat commonly found in {fileType} content
+                  </p>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default FileAnalysis;
