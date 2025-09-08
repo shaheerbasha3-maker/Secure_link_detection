@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Shield, Zap, Eye, Globe, Lock, CheckCircle } from 'lucide-react';
 import heroImage from '@/assets/hero-security.jpg';
+import LearnMoreModal from './LearnMoreModal';
 
 const Hero = () => {
+  const [showLearnMore, setShowLearnMore] = useState(false);
+  
   const scrollToAnalyzer = () => {
     const analyzer = document.getElementById('url-analyzer');
     analyzer?.scrollIntoView({ behavior: 'smooth' });
@@ -100,6 +103,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
+              onClick={() => setShowLearnMore(true)}
               className="px-8 py-4 text-lg border-2 hover:border-primary"
             >
               <Lock className="w-5 h-5 mr-2" />
@@ -133,6 +137,12 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      {/* Learn More Modal */}
+      <LearnMoreModal 
+        isOpen={showLearnMore} 
+        onClose={() => setShowLearnMore(false)} 
+      />
     </section>
   );
 };

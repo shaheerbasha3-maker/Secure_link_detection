@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '@/components/Hero';
 import URLAnalyzer from '@/components/URLAnalyzer';
 import Features from '@/components/Features';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
         <URLAnalyzer />
       </div>
       <Features />
+      <Footer />
     </div>
   );
 };
