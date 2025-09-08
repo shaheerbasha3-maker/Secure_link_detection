@@ -135,15 +135,17 @@ const FileAnalysis = () => {
     }
 
     // Generate mock results based on file type
+    const detectedThreats = fileInfo.specificThreats.slice(0, Math.floor(Math.random() * 3) + 1);
     const mockResults = {
       riskScore: Math.floor(Math.random() * 100),
-      threatsDetected: Math.floor(Math.random() * 5),
+      threatsDetected: detectedThreats.length,
       fileInfo: {
         type: fileInfo.title,
         size: `${Math.floor(Math.random() * 1000) + 100} KB`,
         format: fileInfo.fileExtensions[0] || 'Unknown'
       },
-      threats: fileInfo.specificThreats.slice(0, Math.floor(Math.random() * 3) + 1),
+      threats: detectedThreats,
+      attackMethods: getAttackMethodology(detectedThreats),
       recommendations: [
         `Avoid interacting with ${fileType} files from untrusted sources`,
         'Use updated antivirus software for additional protection',
@@ -154,6 +156,54 @@ const FileAnalysis = () => {
 
     setResults(mockResults);
     setIsAnalyzing(false);
+  };
+
+  const getAttackMethodology = (threats: string[]) => {
+    const methodologies: { [key: string]: any } = {
+      'Phishing landing pages': {
+        description: 'Fake websites designed to steal credentials',
+        tools: ['Social engineering kits', 'Domain spoofing tools', 'SSL certificate generators'],
+        creation: 'Attackers clone legitimate websites and host them on similar domains',
+        prevention: 'Verify URLs carefully, check SSL certificates, use 2FA'
+      },
+      'Malicious redirects': {
+        description: 'URLs that redirect users to harmful content',
+        tools: ['URL shorteners', 'JavaScript injection', 'HTTP header manipulation'],
+        creation: 'Compromised websites or malicious ads redirect traffic through multiple hops',
+        prevention: 'Use URL scanners, disable automatic redirects, check destination URLs'
+      },
+      'Steganography hiding malware': {
+        description: 'Malicious code hidden within image pixels',
+        tools: ['Steghide', 'OutGuess', 'Custom encoding scripts'],
+        creation: 'Malware is embedded in image data using LSB or frequency domain techniques',
+        prevention: 'Use steganography detection tools, scan images with multiple engines'
+      },
+      'Macro-based malware': {
+        description: 'Malicious VBA/JavaScript code in documents',
+        tools: ['Metasploit', 'Empire framework', 'Custom VBA generators'],
+        creation: 'Attackers embed auto-executing macros that download payloads',
+        prevention: 'Disable macros by default, use protected view, scan documents'
+      },
+      'Cross-site scripting (XSS)': {
+        description: 'Malicious scripts injected into web pages',
+        tools: ['XSS Hunter', 'BeEF framework', 'Custom payload generators'],
+        creation: 'Attackers inject JavaScript through vulnerable input fields or URLs',
+        prevention: 'Input validation, Content Security Policy, XSS filters'
+      },
+      'Ransomware encryption': {
+        description: 'Files encrypted and held for ransom',
+        tools: ['Custom encryption tools', 'Bitcoin payment systems', 'Command & control servers'],
+        creation: 'Malware encrypts files using strong encryption and demands payment',
+        prevention: 'Regular backups, endpoint protection, network segmentation'
+      }
+    };
+
+    return threats.map(threat => methodologies[threat] || {
+      description: 'Advanced threat with potential system impact',
+      tools: ['Unknown attack vectors', 'Custom exploitation tools'],
+      creation: 'Sophisticated attack methodology requiring analysis',
+      prevention: 'Use comprehensive security solutions and best practices'
+    });
   };
 
   const getRiskColor = (score: number) => {
@@ -287,11 +337,41 @@ const FileAnalysis = () => {
                           <AlertTriangle className="w-4 h-4 text-destructive" />
                           Detected Threats ({results.threats.length})
                         </h3>
-                        <div className="space-y-2">
+                        <div className="space-y-4">
                           {results.threats.map((threat: string, index: number) => (
-                            <div key={index} className="flex items-center gap-3 p-2 bg-destructive/5 border border-destructive/20 rounded">
-                              <div className="w-2 h-2 bg-destructive rounded-full" />
-                              <span className="text-sm">{threat}</span>
+                            <div key={index} className="p-4 bg-destructive/5 border border-destructive/20 rounded-lg">
+                              <div className="flex items-center gap-3 mb-3">
+                                <div className="w-2 h-2 bg-destructive rounded-full" />
+                                <span className="font-semibold text-sm">{threat}</span>
+                              </div>
+                              
+                              {results.attackMethods[index] && (
+                                <div className="space-y-3 ml-5">
+                                  <div>
+                                    <h4 className="text-xs font-semibold text-muted-foreground mb-1">ATTACK DESCRIPTION</h4>
+                                    <p className="text-xs">{results.attackMethods[index].description}</p>
+                                  </div>
+                                  
+                                  <div>
+                                    <h4 className="text-xs font-semibold text-muted-foreground mb-1">TOOLS USED BY ATTACKERS</h4>
+                                    <div className="flex flex-wrap gap-1">
+                                      {results.attackMethods[index].tools.map((tool: string, toolIndex: number) => (
+                                        <Badge key={toolIndex} variant="destructive" className="text-xs">{tool}</Badge>
+                                      ))}
+                                    </div>
+                                  </div>
+                                  
+                                  <div>
+                                    <h4 className="text-xs font-semibold text-muted-foreground mb-1">HOW IT'S CREATED</h4>
+                                    <p className="text-xs">{results.attackMethods[index].creation}</p>
+                                  </div>
+                                  
+                                  <div>
+                                    <h4 className="text-xs font-semibold text-muted-foreground mb-1">PROTECTION METHODS</h4>
+                                    <p className="text-xs text-primary">{results.attackMethods[index].prevention}</p>
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           ))}
                         </div>

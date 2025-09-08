@@ -177,9 +177,9 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-1 text-muted-foreground" />
                 <div className="text-sm">
-                  <p className="font-medium">United States</p>
-                  <p className="text-muted-foreground">California, San Francisco</p>
-                  <p className="text-muted-foreground">Downtown Financial District</p>
+                  <p className="font-medium">India</p>
+                  <p className="text-muted-foreground">Andhra Pradesh, Madanapalle</p>
+                  <p className="text-muted-foreground">Security Operations Center</p>
                 </div>
               </div>
               
@@ -195,7 +195,7 @@ const Footer = () => {
                 <Mail className="w-4 h-4 mt-1 text-muted-foreground" />
                 <div className="text-sm">
                   <p className="font-medium">Email Support</p>
-                  <p className="text-muted-foreground">support@fraudlinkdetection.com</p>
+                  <p className="text-muted-foreground">fraudlinkdetection29@gmail.com</p>
                 </div>
               </div>
 
@@ -203,7 +203,7 @@ const Footer = () => {
                 <Phone className="w-4 h-4 mt-1 text-muted-foreground" />
                 <div className="text-sm">
                   <p className="font-medium">24/7 Support</p>
-                  <p className="text-muted-foreground">+1 (555) 123-SAFE</p>
+                  <p className="text-muted-foreground">+91 9963368930</p>
                 </div>
               </div>
             </CardContent>
