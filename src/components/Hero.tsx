@@ -110,15 +110,7 @@ const Hero = () => {
               Learn More
             </Button>
             
-            <Button 
-              variant="secondary" 
-              size="lg"
-              onClick={() => window.open('/deploy', '_blank')}
-              className="px-8 py-4 text-lg"
-            >
-              <Rocket className="w-5 h-5 mr-2" />
-              Deploy Guide
-            </Button>
+          
           </div>
 
           {/* Trust Indicators */}

@@ -6,8 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import FileAnalysis from "./pages/FileAnalysis";
-import DeploymentGuide from "./components/DeploymentGuide";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -19,7 +17,6 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/analyze/:fileType" element={<FileAnalysis />} />
-          <Route path="/deploy" element={<DeploymentGuide />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
