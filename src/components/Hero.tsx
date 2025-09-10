@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Zap, Eye, Globe, Lock, CheckCircle } from 'lucide-react';
+import { Shield, Zap, Eye, Globe, Lock, CheckCircle, Rocket } from 'lucide-react';
 import heroImage from '@/assets/hero-security.jpg';
 import LearnMoreModal from './LearnMoreModal';
 
@@ -108,6 +108,16 @@ const Hero = () => {
             >
               <Lock className="w-5 h-5 mr-2" />
               Learn More
+            </Button>
+            
+            <Button 
+              variant="secondary" 
+              size="lg"
+              onClick={() => window.open('/deploy', '_blank')}
+              className="px-8 py-4 text-lg"
+            >
+              <Rocket className="w-5 h-5 mr-2" />
+              Deploy Guide
             </Button>
           </div>
 
