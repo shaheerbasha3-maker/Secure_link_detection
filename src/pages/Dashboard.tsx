@@ -3,15 +3,17 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Shield, LogOut, User, Settings, BarChart3 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 import URLAnalyzer from '@/components/URLAnalyzer';
 import Features from '@/components/Features';
 import Footer from '@/components/Footer';
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const { signOut } = useAuth();
 
-  const handleLogout = () => {
-    // In a real app, you'd clear authentication state here
+  const handleLogout = async () => {
+    await signOut();
     navigate('/');
   };
 

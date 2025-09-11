@@ -1,37 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Globe, Zap } from 'lucide-react';
+import { Shield, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Globe, Zap, UserPlus } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
+  const { signIn, signUp, user, loading } = useAuth();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  // Redirect if already logged in
+  useEffect(() => {
+    if (!loading && user) {
+      navigate('/dashboard');
+    }
+  }, [user, loading, navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
+    setSuccessMessage('');
 
-    // Simulate authentication - replace with actual Supabase auth
     try {
-      if (email && password) {
-        // Simulated delay for authentication
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        navigate('/dashboard');
+      if (isSignUp) {
+        // Handle registration
+        const { error } = await signUp(email, password, fullName);
+        if (error) {
+          setError(error.message);
+        } else {
+          setSuccessMessage('Registration successful! Please check your email to verify your account.');
+          setIsSignUp(false);
+          setEmail('');
+          setPassword('');
+          setFullName('');
+        }
       } else {
-        setError('Please enter both email and password');
+        // Handle login
+        const { error } = await signIn(email, password);
+        if (error) {
+          setError(error.message);
+        } else {
+          navigate('/dashboard');
+        }
       }
     } catch (err) {
-      setError('Login failed. Please try again.');
+      setError('An unexpected error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -40,6 +66,16 @@ const Login = () => {
   const handleDemoLogin = () => {
     setEmail('demo@securelink.com');
     setPassword('demo123');
+    setIsSignUp(false);
+  };
+
+  const toggleAuthMode = () => {
+    setIsSignUp(!isSignUp);
+    setError('');
+    setSuccessMessage('');
+    setEmail('');
+    setPassword('');
+    setFullName('');
   };
 
   return (
@@ -114,19 +150,46 @@ const Login = () => {
               <div className="mx-auto w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
                 <Lock className="w-6 h-6 text-white" />
               </div>
-              <CardTitle className="text-2xl font-bold">Secure Access</CardTitle>
+              <CardTitle className="text-2xl font-bold">
+                {isSignUp ? 'Create Account' : 'Secure Access'}
+              </CardTitle>
               <CardDescription>
-                Sign in to your SecureLink account to access advanced threat detection
+                {isSignUp 
+                  ? 'Join SecureLink to access advanced threat detection and fraud prevention'
+                  : 'Sign in to your SecureLink account to access advanced threat detection'
+                }
               </CardDescription>
             </CardHeader>
 
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleSubmit}>
               <CardContent className="space-y-4">
                 {error && (
                   <Alert variant="destructive">
                     <AlertCircle className="h-4 w-4" />
                     <AlertDescription>{error}</AlertDescription>
                   </Alert>
+                )}
+
+                {successMessage && (
+                  <Alert className="border-success bg-success/10">
+                    <CheckCircle className="h-4 w-4 text-success" />
+                    <AlertDescription className="text-success">{successMessage}</AlertDescription>
+                  </Alert>
+                )}
+
+                {isSignUp && (
+                  <div className="space-y-2">
+                    <Label htmlFor="fullName">Full Name</Label>
+                    <Input
+                      id="fullName"
+                      type="text"
+                      placeholder="Enter your full name"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="h-12"
+                      required
+                    />
+                  </div>
                 )}
 
                 <div className="space-y-2">
@@ -170,23 +233,25 @@ const Login = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between text-sm">
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    className="h-auto p-0 text-primary hover:text-primary/80"
-                    onClick={handleDemoLogin}
-                  >
-                    Try Demo Account
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    className="h-auto p-0 text-muted-foreground hover:text-foreground"
-                  >
-                    Forgot Password?
-                  </Button>
-                </div>
+                {!isSignUp && (
+                  <div className="flex items-center justify-between text-sm">
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-auto p-0 text-primary hover:text-primary/80"
+                      onClick={handleDemoLogin}
+                    >
+                      Try Demo Account
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-auto p-0 text-muted-foreground hover:text-foreground"
+                    >
+                      Forgot Password?
+                    </Button>
+                  </div>
+                )}
               </CardContent>
 
               <CardFooter className="flex flex-col space-y-4">
@@ -198,24 +263,34 @@ const Login = () => {
                   {isLoading ? (
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                      Authenticating...
+                      {isSignUp ? 'Creating Account...' : 'Authenticating...'}
                     </div>
                   ) : (
                     <>
-                      <Shield className="w-5 h-5 mr-2" />
-                      Sign In Securely
+                      {isSignUp ? (
+                        <>
+                          <UserPlus className="w-5 h-5 mr-2" />
+                          Create Account
+                        </>
+                      ) : (
+                        <>
+                          <Shield className="w-5 h-5 mr-2" />
+                          Sign In Securely
+                        </>
+                      )}
                     </>
                   )}
                 </Button>
 
                 <div className="text-center text-sm text-muted-foreground">
-                  Need an account?{' '}
+                  {isSignUp ? 'Already have an account?' : 'Need an account?'}{' '}
                   <Button
                     type="button"
                     variant="ghost"
                     className="h-auto p-0 text-primary hover:text-primary/80"
+                    onClick={toggleAuthMode}
                   >
-                    Contact Sales
+                    {isSignUp ? 'Sign In' : 'Create Account'}
                   </Button>
                 </div>
               </CardFooter>
