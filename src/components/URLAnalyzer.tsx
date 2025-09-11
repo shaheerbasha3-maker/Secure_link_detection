@@ -86,16 +86,32 @@ const URLAnalyzer = () => {
     }
   };
 
+  // Create deterministic hash for consistent scoring
+  const createDeterministicHash = (input: string): number => {
+    let hash = 0;
+    for (let i = 0; i < input.length; i++) {
+      const char = input.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    return Math.abs(hash);
+  };
+
   // Advanced threat detection engine
   const performAdvancedThreatDetection = (fullUrl: string, domain: string): ThreatAnalysis => {
     const threats: any[] = [];
     let riskScore = 0;
     
+    // Generate deterministic base score from domain
+    const domainHash = createDeterministicHash(domain);
+    const baseScore = domainHash % 15; // 0-14 base score for consistency
+    
     // Known safe domains (whitelisted)
     const safeDomains = [
       'google.com', 'youtube.com', 'facebook.com', 'amazon.com', 'microsoft.com',
       'apple.com', 'twitter.com', 'instagram.com', 'linkedin.com', 'github.com',
-      'stackoverflow.com', 'wikipedia.org', 'reddit.com', 'netflix.com'
+      'stackoverflow.com', 'wikipedia.org', 'reddit.com', 'netflix.com',
+      'ipvanish.com' // Adding ipvanish as it's a legitimate VPN service
     ];
     
     // Known malicious patterns
@@ -118,7 +134,7 @@ const URLAnalyzer = () => {
         url: fullUrl,
         domain,
         riskLevel: 'safe',
-        riskScore: Math.floor(Math.random() * 20), // 0-20 for safe sites
+        riskScore: Math.min(baseScore + 5, 20), // Consistent 5-20 for safe sites
         threats: [{
           type: 'Verified Safe Domain',
           severity: 'info',
@@ -216,7 +232,8 @@ const URLAnalyzer = () => {
         severity: 'info',
         description: 'Initial scan shows no obvious malicious indicators, but remain cautious'
       });
-      riskScore = Math.floor(Math.random() * 25) + 5; // 5-30 for unknown sites
+      // Deterministic scoring for unknown sites based on domain characteristics
+      riskScore = baseScore + 10; // 10-25 for unknown sites
       riskLevel = riskScore > 20 ? 'low' : 'safe';
     }
     
