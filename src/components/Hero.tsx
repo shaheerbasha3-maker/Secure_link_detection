@@ -43,10 +43,10 @@ const Hero = () => {
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Fraud Link
+              SecureLink
             </span>
             <br />
-            <span className="text-foreground">Detection</span>
+            <span className="text-foreground text-2xl md:text-4xl">An Intelligent Web Platform for URL Fraud Detection</span>
           </h1>
 
           {/* Subtitle */}
@@ -97,7 +97,7 @@ const Hero = () => {
               className="px-8 py-4 text-lg font-semibold"
             >
               <Shield className="w-5 h-5 mr-2" />
-              Start Security Scan
+              Start Free Analysis
             </Button>
             
             <Button 

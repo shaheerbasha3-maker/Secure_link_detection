@@ -305,10 +305,10 @@ const URLAnalyzer = () => {
             </div>
           </div>
           <CardTitle className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            URL Security Analyzer
+            SecureLink URL Analyzer
           </CardTitle>
           <CardDescription className="text-lg">
-            Paste any URL, link, or web address to analyze potential security threats and risks
+            Intelligent fraud detection - Paste any URL, link, or web address to analyze potential security threats and risks
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
