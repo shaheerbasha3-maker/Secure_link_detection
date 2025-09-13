@@ -65,7 +65,7 @@ const Login = () => {
 
   const handleDemoLogin = () => {
     setEmail('demo@securelink.com');
-    setPassword('demo123');
+    setPassword('demo123456');
     setIsSignUp(false);
   };
 
