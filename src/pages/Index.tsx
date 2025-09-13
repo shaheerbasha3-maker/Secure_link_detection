@@ -15,13 +15,7 @@ const Index = () => {
         <Button variant="outline" asChild>
           <Link to="/login">
             <LogIn className="w-4 h-4 mr-2" />
-            Login
-          </Link>
-        </Button>
-        <Button variant="default" asChild>
-          <Link to="/dashboard">
-            <User className="w-4 h-4 mr-2" />
-            Dashboard
+            Sign In
           </Link>
         </Button>
       </nav>
