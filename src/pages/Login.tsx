@@ -14,6 +14,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [isSignUp, setIsSignUp] = useState(false);
@@ -37,7 +38,7 @@ const Login = () => {
     try {
       if (isSignUp) {
         // Handle registration
-        const { error } = await signUp(email, password, fullName);
+        const { error } = await signUp(email, password, fullName, mobileNumber);
         if (error) {
           setError(error.message);
         } else {
@@ -46,6 +47,7 @@ const Login = () => {
           setEmail('');
           setPassword('');
           setFullName('');
+          setMobileNumber('');
         }
       } else {
         // Handle login
@@ -76,6 +78,7 @@ const Login = () => {
     setEmail('');
     setPassword('');
     setFullName('');
+    setMobileNumber('');
   };
 
   return (
@@ -178,18 +181,32 @@ const Login = () => {
                 )}
 
                 {isSignUp && (
-                  <div className="space-y-2">
-                    <Label htmlFor="fullName">Full Name</Label>
-                    <Input
-                      id="fullName"
-                      type="text"
-                      placeholder="Enter your full name"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className="h-12"
-                      required
-                    />
-                  </div>
+                  <>
+                    <div className="space-y-2">
+                      <Label htmlFor="fullName">Full Name</Label>
+                      <Input
+                        id="fullName"
+                        type="text"
+                        placeholder="Enter your full name"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        className="h-12"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="mobileNumber">Mobile Number</Label>
+                      <Input
+                        id="mobileNumber"
+                        type="tel"
+                        placeholder="Enter your mobile number"
+                        value={mobileNumber}
+                        onChange={(e) => setMobileNumber(e.target.value)}
+                        className="h-12"
+                        required
+                      />
+                    </div>
+                  </>
                 )}
 
                 <div className="space-y-2">
