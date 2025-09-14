@@ -51,14 +51,18 @@ const Login = () => {
         }
       } else {
         // Handle login
+        console.log('Attempting login with:', email);
         const { error } = await signIn(email, password);
         if (error) {
+          console.error('Login error:', error);
           setError(error.message);
         } else {
+          console.log('Login successful');
           navigate('/dashboard');
         }
       }
     } catch (err) {
+      console.error('Unexpected error:', err);
       setError('An unexpected error occurred. Please try again.');
     } finally {
       setIsLoading(false);
