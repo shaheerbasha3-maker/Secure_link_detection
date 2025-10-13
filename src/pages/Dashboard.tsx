@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shield, LogOut, User, Settings, BarChart3, Link2, FileText, Image, Video, Database, Lock, Globe, Zap, Eye, Search, AlertTriangle, CheckCircle, Clock, TrendingUp } from 'lucide-react';
+import { Shield, Settings, BarChart3, Link2, FileText, Image, Video, Database, Lock, Globe, Eye, AlertTriangle, Clock, TrendingUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import URLAnalyzer from '@/components/URLAnalyzer';
 import Footer from '@/components/Footer';
+import ProfileDropdown from '@/components/ProfileDropdown';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { signOut, user, loading } = useAuth();
+  const { user, loading } = useAuth();
 
   // Protect dashboard - redirect to login if not authenticated
   useEffect(() => {
@@ -18,11 +19,6 @@ const Dashboard = () => {
       navigate('/login');
     }
   }, [user, loading, navigate]);
-
-  const handleLogout = async () => {
-    await signOut();
-    navigate('/');
-  };
 
   // Show loading or redirect while checking auth
   if (loading) {
@@ -69,25 +65,17 @@ const Dashboard = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" onClick={() => navigate('/analytics')}>
                 <BarChart3 className="w-4 h-4 mr-2" />
                 Analytics
               </Button>
               
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" onClick={() => navigate('/settings')}>
                 <Settings className="w-4 h-4 mr-2" />
                 Settings
               </Button>
               
-              <Button variant="ghost" size="sm">
-                <User className="w-4 h-4 mr-2" />
-                Profile
-              </Button>
-              
-              <Button variant="outline" size="sm" onClick={handleLogout}>
-                <LogOut className="w-4 h-4 mr-2" />
-                Sign Out
-              </Button>
+              <ProfileDropdown />
             </div>
           </div>
         </div>
@@ -145,43 +133,55 @@ const Dashboard = () => {
 
             {/* Quick Actions Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              <Card className="shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer group">
+              <Card 
+                className="shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer group"
+                onClick={() => navigate('/analyze/urls')}
+              >
                 <CardHeader className="text-center pb-4">
                   <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <Link2 className="w-6 h-6 text-white" />
                   </div>
                   <CardTitle className="text-lg">URL Scanner</CardTitle>
-                  <CardDescription>Analyze links and web addresses</CardDescription>
+                  <CardDescription>Supported: http://, https://</CardDescription>
                 </CardHeader>
               </Card>
 
-              <Card className="shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer group">
+              <Card 
+                className="shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer group"
+                onClick={() => navigate('/analyze/documents')}
+              >
                 <CardHeader className="text-center pb-4">
                   <div className="w-12 h-12 bg-gradient-secure rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <FileText className="w-6 h-6 text-white" />
                   </div>
                   <CardTitle className="text-lg">Document Analysis</CardTitle>
-                  <CardDescription>Scan PDFs and documents</CardDescription>
+                  <CardDescription>PDF, DOC, XLS, PPT</CardDescription>
                 </CardHeader>
               </Card>
 
-              <Card className="shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer group">
+              <Card 
+                className="shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer group"
+                onClick={() => navigate('/analyze/images')}
+              >
                 <CardHeader className="text-center pb-4">
                   <div className="w-12 h-12 bg-gradient-warning rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <Image className="w-6 h-6 text-white" />
                   </div>
                   <CardTitle className="text-lg">Image Scanner</CardTitle>
-                  <CardDescription>Detect malicious images</CardDescription>
+                  <CardDescription>JPG, PNG, GIF, BMP, TIFF</CardDescription>
                 </CardHeader>
               </Card>
 
-              <Card className="shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer group">
+              <Card 
+                className="shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer group"
+                onClick={() => navigate('/analyze/web-content')}
+              >
                 <CardHeader className="text-center pb-4">
                   <div className="w-12 h-12 bg-gradient-danger rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <Database className="w-6 h-6 text-white" />
                   </div>
                   <CardTitle className="text-lg">Threat Intel</CardTitle>
-                  <CardDescription>Global threat intelligence</CardDescription>
+                  <CardDescription>HTML, CSS, JS, XML</CardDescription>
                 </CardHeader>
               </Card>
             </div>
