@@ -70,6 +70,11 @@ const Dashboard = () => {
                 Analytics
               </Button>
               
+              <Button variant="ghost" size="sm" onClick={() => navigate('/datasets')}>
+                <Database className="w-4 h-4 mr-2" />
+                Datasets
+              </Button>
+              
               <Button variant="ghost" size="sm" onClick={() => navigate('/settings')}>
                 <Settings className="w-4 h-4 mr-2" />
                 Settings

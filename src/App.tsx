@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import FileAnalysis from "./pages/FileAnalysis";
 import Settings from "./pages/Settings";
 import Analytics from "./pages/Analytics";
+import Datasets from "./pages/Datasets";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
             <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+            <Route path="/datasets" element={<ProtectedRoute><Datasets /></ProtectedRoute>} />
             <Route path="/analyze/:fileType" element={<ProtectedRoute><FileAnalysis /></ProtectedRoute>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

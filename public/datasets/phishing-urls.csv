@@ -1,0 +1,26 @@
+URL,Risk_Level,Risk_Score,Attack_Type,Target_Brand,Spoofing_Technique,SSL_Present,Created_Date
+http://secure-paypal-login.xyz/verify,critical,96,Credential Theft,PayPal,Domain Spoofing,false,2024-01-15
+http://amazon-account-verify.tk/signin,critical,94,Credential Theft,Amazon,Subdomain Manipulation,false,2024-01-18
+http://microsoft-support-team.ml/update,critical,93,Malware Distribution,Microsoft,Typosquatting,false,2024-01-20
+http://facebook-security-check.ru/confirm,critical,95,Credential Theft,Facebook,Domain Spoofing,false,2024-01-22
+http://apple-id-locked.xyz/unlock,critical,94,Credential Theft,Apple,URL Obfuscation,false,2024-01-25
+http://google-security-alert.tk/verify,critical,92,Credential Theft,Google,Subdomain Manipulation,false,2024-02-01
+http://bank-of-america-secure.ml/login,critical,97,Credential Theft,Bank of America,Domain Spoofing,false,2024-02-05
+http://netflix-billing-update.xyz/payment,critical,91,Credential Theft,Netflix,Domain Spoofing,false,2024-02-08
+http://instagram-verify-account.tk/badge,critical,90,Credential Theft,Instagram,Subdomain Manipulation,false,2024-02-12
+http://linkedin-premium-offer.ru/upgrade,high,88,Credential Theft,LinkedIn,Domain Spoofing,false,2024-02-15
+http://chase-online-banking.ml/signin,critical,96,Credential Theft,Chase Bank,Domain Spoofing,false,2024-02-18
+http://wells-fargo-verify.xyz/account,critical,95,Credential Theft,Wells Fargo,Domain Spoofing,false,2024-02-20
+http://coinbase-security-alert.tk/verify,critical,93,Credential Theft,Coinbase,Subdomain Manipulation,false,2024-02-22
+http://binance-kyc-verification.ml/complete,critical,94,Credential Theft,Binance,Domain Spoofing,false,2024-02-25
+http://steam-gift-card.ru/redeem,high,87,Credential Theft,Steam,URL Obfuscation,false,2024-03-01
+http://ebay-seller-payment.xyz/confirm,critical,92,Credential Theft,eBay,Domain Spoofing,false,2024-03-05
+http://adobe-creative-cloud.tk/renew,critical,91,Malware Distribution,Adobe,Typosquatting,false,2024-03-08
+http://dropbox-storage-upgrade.ml/increase,high,89,Credential Theft,Dropbox,Domain Spoofing,false,2024-03-12
+http://whatsapp-web-verify.ru/code,critical,90,Credential Theft,WhatsApp,Subdomain Manipulation,false,2024-03-15
+http://zoom-meeting-secure.xyz/join,high,86,Malware Distribution,Zoom,Domain Spoofing,false,2024-03-18
+http://twitter-blue-verification.tk/apply,critical,92,Credential Theft,Twitter,Domain Spoofing,false,2024-03-20
+http://spotify-premium-trial.ml/activate,high,88,Credential Theft,Spotify,URL Obfuscation,false,2024-03-22
+http://royal-mail-redelivery.ru/tracking,critical,94,Credential Theft,Royal Mail,Domain Spoofing,false,2024-03-25
+http://usps-package-delivery.xyz/redeliver,critical,93,Credential Theft,USPS,Domain Spoofing,false,2024-03-28
+http://dhl-tracking-update.tk/parcel,critical,91,Credential Theft,DHL,Subdomain Manipulation,false,2024-04-01

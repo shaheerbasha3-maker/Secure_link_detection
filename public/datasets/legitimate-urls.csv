@@ -1,0 +1,26 @@
+URL,Risk_Level,Risk_Score,Domain_Age_Years,SSL_Status,HTTPS,Reputation_Score,Category
+https://www.google.com,safe,5,26,valid,true,100,Search Engine
+https://www.facebook.com,safe,8,20,valid,true,98,Social Media
+https://www.amazon.com,safe,10,29,valid,true,99,E-commerce
+https://www.youtube.com,safe,6,19,valid,true,100,Video Streaming
+https://www.wikipedia.org,safe,3,23,valid,true,100,Education
+https://www.twitter.com,safe,12,18,valid,true,97,Social Media
+https://www.linkedin.com,safe,8,21,valid,true,98,Professional Network
+https://www.instagram.com,safe,9,14,valid,true,97,Social Media
+https://www.microsoft.com,safe,7,39,valid,true,100,Technology
+https://www.apple.com,safe,5,48,valid,true,100,Technology
+https://www.github.com,safe,10,16,valid,true,99,Development
+https://www.stackoverflow.com,safe,8,16,valid,true,99,Development
+https://www.reddit.com,safe,11,19,valid,true,96,Social Media
+https://www.netflix.com,safe,7,27,valid,true,98,Entertainment
+https://www.spotify.com,safe,9,18,valid,true,97,Music Streaming
+https://www.zoom.us,safe,6,13,valid,true,98,Communication
+https://www.dropbox.com,safe,8,17,valid,true,98,Cloud Storage
+https://www.adobe.com,safe,5,41,valid,true,99,Software
+https://www.paypal.com,safe,10,26,valid,true,99,Payment Services
+https://www.ebay.com,safe,12,29,valid,true,97,E-commerce
+https://www.cnn.com,safe,7,38,valid,true,98,News
+https://www.bbc.com,safe,6,28,valid,true,99,News
+https://www.nytimes.com,safe,8,28,valid,true,98,News
+https://www.walmart.com,safe,9,28,valid,true,98,E-commerce
+https://www.target.com,safe,10,25,valid,true,97,E-commerce

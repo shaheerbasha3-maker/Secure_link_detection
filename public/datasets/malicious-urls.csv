@@ -1,0 +1,26 @@
+URL,Risk_Level,Risk_Score,Threat_Types,Domain,Country,SSL_Status,Detection_Method
+http://bit.ly/3xYz9k2,high,85,URL Shortener|Suspicious Domain,bit.ly,US,valid,shortener_detection
+http://paypa1-secure.com/login,critical,95,Typosquatting|Phishing Pattern,paypa1-secure.com,Unknown,invalid,typosquatting_detection
+http://goog1e-verify.tk/account,critical,92,Suspicious TLD|Typosquatting,goog1e-verify.tk,Unknown,invalid,suspicious_tld
+http://amazon-support-center.xyz/verify,high,88,Phishing Pattern|Suspicious TLD,amazon-support-center.xyz,Unknown,invalid,phishing_pattern
+http://facebo0k-security.com/login,critical,94,Typosquatting|Phishing Pattern,facebo0k-security.com,Unknown,invalid,typosquatting_detection
+http://micros0ft-update.ru/download,high,89,Typosquatting|Suspicious TLD,micros0ft-update.ru,RU,invalid,typosquatting_detection
+http://apple-icloud-verify.tk/signin,critical,93,Suspicious TLD|Phishing Pattern,apple-icloud-verify.tk,Unknown,invalid,suspicious_tld
+http://secure-banking-login.xyz/auth,high,87,Phishing Pattern|Suspicious TLD,secure-banking-login.xyz,Unknown,invalid,phishing_pattern
+http://paypal.account-verify.com/signin,high,86,Domain Spoofing|Phishing Pattern,paypal.account-verify.com,Unknown,invalid,domain_spoofing
+http://netflix-payment-update.ml/billing,critical,91,Suspicious TLD|Phishing Pattern,netflix-payment-update.ml,Unknown,invalid,suspicious_tld
+http://tinyurl.com/yh3k9x2a,medium,72,URL Shortener,tinyurl.com,US,valid,shortener_detection
+http://banco-santander-seguro.xyz/login,high,88,Phishing Pattern|Suspicious TLD,banco-santander-seguro.xyz,Unknown,invalid,phishing_pattern
+http://instagram-verify-badge.tk/confirm,critical,90,Suspicious TLD|Phishing Pattern,instagram-verify-badge.tk,Unknown,invalid,suspicious_tld
+http://linkedin-security-check.ru/account,high,87,Suspicious TLD|Phishing Pattern,linkedin-security-check.ru,RU,invalid,suspicious_tld
+http://twitter-verification.xyz/badge,high,86,Phishing Pattern|Suspicious TLD,twitter-verification.xyz,Unknown,invalid,phishing_pattern
+http://dropbox-storage-full.ml/upgrade,critical,92,Suspicious TLD|Phishing Pattern,dropbox-storage-full.ml,Unknown,invalid,suspicious_tld
+http://amaz0n-prime.com/renew,critical,94,Typosquatting|Phishing Pattern,amaz0n-prime.com,Unknown,invalid,typosquatting_detection
+http://ebay-seller-center.tk/verify,high,89,Suspicious TLD|Phishing Pattern,ebay-seller-center.tk,Unknown,invalid,suspicious_tld
+http://gmai1-recovery.com/reset,critical,93,Typosquatting|Phishing Pattern,gmai1-recovery.com,Unknown,invalid,typosquatting_detection
+http://outlook-security-alert.ru/signin,high,88,Suspicious TLD|Phishing Pattern,outlook-security-alert.ru,RU,invalid,suspicious_tld
+http://whatsapp-verify.xyz/code,high,87,Phishing Pattern|Suspicious TLD,whatsapp-verify.xyz,Unknown,invalid,phishing_pattern
+http://spotify-premium-free.tk/offer,critical,91,Suspicious TLD|Phishing Pattern,spotify-premium-free.tk,Unknown,invalid,suspicious_tld
+http://adobe-license-expired.ml/renew,critical,90,Suspicious TLD|Phishing Pattern,adobe-license-expired.ml,Unknown,invalid,suspicious_tld
+http://steam-community-trade.ru/accept,high,86,Suspicious TLD|Phishing Pattern,steam-community-trade.ru,RU,invalid,suspicious_tld
+http://paypa1.com/dispute,critical,95,Typosquatting|Phishing Pattern,paypa1.com,Unknown,invalid,typosquatting_detection
