@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Shield, Zap, Eye, Globe, Lock, CheckCircle, Rocket } from 'lucide-react';
