@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Kirjaudu Sisään",
+    "dashboard": "Hallintapaneeli",
+    "settings": "Asetukset",
+    "analytics": "Analytiikka"
+  },
+  "hero": {
+    "title": "Kehittynyt AI-pohjainen Kyberturvallisuussuoja",
+    "subtitle": "SecureLink käyttää huippuluokan koneoppimista ja syviä neuroverkkoja havaitakseen tietojenkalastelun, haittaohjelmia ja petossivustoja reaaliajassa 99% tarkkuudella",
+    "scanButton": "Aloita Turvallisuusskannaus",
+    "learnMore": "Lue Lisää"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL-analysaattori",
+    "description": "Älykäs petosten havaitseminen - Liitä mikä tahansa URL-osoite, linkki tai verkko-osoite analysoidaksesi mahdolliset turvallisuusuhat ja riskit",
+    "placeholder": "https://esimerkki.com tai liitä epäilyttävä linkki tähän",
+    "analyzeButton": "Analysoi Nyt",
+    "scanning": "Syvä Skannaus..."
+  },
+  "common": {
+    "language": "Kieli",
+    "selectLanguage": "Valitse Kieli"
+  }
+}

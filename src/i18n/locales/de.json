@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Anmelden",
+    "dashboard": "Dashboard",
+    "settings": "Einstellungen",
+    "analytics": "Analysen"
+  },
+  "hero": {
+    "title": "Fortgeschrittener KI-gestützter Cybersecurity-Schutz",
+    "subtitle": "SecureLink nutzt modernste maschinelles Lernen und tiefe neuronale Netze zur Erkennung von Phishing, Malware und betrügerischen Websites in Echtzeit mit 99% Genauigkeit",
+    "scanButton": "Sicherheitsscan Starten",
+    "learnMore": "Mehr Erfahren"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL-Analyzer",
+    "description": "Intelligente Betrugserkennung - Fügen Sie eine beliebige URL, einen Link oder eine Webadresse ein, um potenzielle Sicherheitsbedrohungen und Risiken zu analysieren",
+    "placeholder": "https://beispiel.com oder verdächtigen Link hier einfügen",
+    "analyzeButton": "Jetzt Analysieren",
+    "scanning": "Tiefenscan..."
+  },
+  "common": {
+    "language": "Sprache",
+    "selectLanguage": "Sprache Auswählen"
+  }
+}

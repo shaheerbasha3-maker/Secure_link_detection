@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Logga In",
+    "dashboard": "Instrumentpanel",
+    "settings": "Inställningar",
+    "analytics": "Analys"
+  },
+  "hero": {
+    "title": "Avancerat AI-drivet Cybersäkerhetsskydd",
+    "subtitle": "SecureLink använder banbrytande maskininlärning och djupa neurala nätverk för att upptäcka nätfiske, skadlig programvara och bedrägliga webbplatser i realtid med 99% noggrannhet",
+    "scanButton": "Starta Säkerhetsskanning",
+    "learnMore": "Läs Mer"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL-analysator",
+    "description": "Intelligent bedrägeridetektering - Klistra in valfri URL, länk eller webbadress för att analysera potentiella säkerhetshot och risker",
+    "placeholder": "https://exempel.com eller klistra in en misstänkt länk här",
+    "analyzeButton": "Analysera Nu",
+    "scanning": "Djupskanning..."
+  },
+  "common": {
+    "language": "Språk",
+    "selectLanguage": "Välj Språk"
+  }
+}

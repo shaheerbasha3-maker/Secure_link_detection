@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Autentificare",
+    "dashboard": "Panou de Control",
+    "settings": "Setări",
+    "analytics": "Analize"
+  },
+  "hero": {
+    "title": "Protecție Avansată de Securitate Cibernetică cu AI",
+    "subtitle": "SecureLink folosește învățare automată de ultimă generație și rețele neuronale profunde pentru a detecta phishing, malware și site-uri web frauduloase în timp real cu o precizie de 99%",
+    "scanButton": "Începe Scanarea de Securitate",
+    "learnMore": "Află Mai Multe"
+  },
+  "urlAnalyzer": {
+    "title": "Analizator URL SecureLink",
+    "description": "Detectare inteligentă a fraudelor - Inserați orice URL, link sau adresă web pentru a analiza potențiale amenințări și riscuri de securitate",
+    "placeholder": "https://exemplu.com sau inserați un link suspect aici",
+    "analyzeButton": "Analizează Acum",
+    "scanning": "Scanare Profundă..."
+  },
+  "common": {
+    "language": "Limbă",
+    "selectLanguage": "Selectați Limba"
+  }
+}

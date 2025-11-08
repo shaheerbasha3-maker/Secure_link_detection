@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "signIn": "Sign In",
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "analytics": "Analytics"
+  },
+  "hero": {
+    "title": "Advanced AI-Powered Cybersecurity Protection",
+    "subtitle": "SecureLink uses cutting-edge machine learning and deep neural networks to detect phishing, malware, and fraudulent websites in real-time with 99% accuracy",
+    "scanButton": "Start Security Scan",
+    "learnMore": "Learn More"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL Analyzer",
+    "description": "Intelligent fraud detection - Paste any URL, link, or web address to analyze potential security threats and risks",
+    "placeholder": "https://example.com or paste suspicious link here",
+    "analyzeButton": "Analyze Now",
+    "scanning": "Deep Scanning...",
+    "testUrls": "Test URLs for Demonstration",
+    "safesite": "Safe Site",
+    "mediumRisk": "Medium Risk",
+    "highRisk": "High Risk",
+    "criticalRisk": "Critical Risk",
+    "analysisProgress": {
+      "title": "AI-Powered Deep Security Analysis...",
+      "step1": "Scanning URL structure and patterns...",
+      "step2": "Checking against threat intelligence database...",
+      "step3": "Analyzing domain reputation and history...",
+      "step4": "Running ML-based phishing detection..."
+    },
+    "riskAssessment": "Risk Assessment",
+    "riskLevel": "Risk",
+    "detectedThreats": "Detected Threats",
+    "domainAnalysis": "Domain Analysis",
+    "domain": "Domain",
+    "registrar": "Registrar",
+    "created": "Created",
+    "country": "Country",
+    "ssl": "SSL Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "potentialConsequences": "Potential Consequences",
+    "recommendations": "Security Recommendations",
+    "toast": {
+      "invalidInput": "Invalid Input",
+      "enterUrl": "Please enter a valid URL to analyze",
+      "analysisComplete": "Deep Analysis Complete",
+      "threatsDetected": "threats detected - Risk Level:",
+      "analysisError": "Analysis Error",
+      "invalidFormat": "Invalid URL format. Please check and try again."
+    },
+    "threats": {
+      "verifiedSafe": "Verified Safe Domain",
+      "verifiedSafeDesc": "This is a well-known legitimate website with strong security measures",
+      "knownMalicious": "Known Malicious Domain",
+      "suspiciousTld": "Suspicious Top-Level Domain",
+      "urlShortener": "URL Shortener Detected",
+      "domainSpoofing": "Domain Spoofing Attempt",
+      "complexDomain": "Complex Domain Structure",
+      "brandImpersonation": "Brand Impersonation",
+      "noThreats": "No Major Threats Detected",
+      "noThreatsDesc": "Initial scan shows no obvious malicious indicators, but remain cautious"
+    }
+  },
+  "features": {
+    "title": "Advanced Security Features",
+    "subtitle": "Powered by Machine Learning & Deep Neural Networks",
+    "realTime": {
+      "title": "Real-Time Threat Detection",
+      "description": "Advanced ML algorithms analyze URLs instantly with 99% accuracy"
+    },
+    "deepLearning": {
+      "title": "Deep Learning Analysis",
+      "description": "CNN-LSTM hybrid models for character-level pattern recognition"
+    },
+    "nlp": {
+      "title": "Natural Language Processing",
+      "description": "BERT-based semantic analysis for brand impersonation detection"
+    },
+    "ensemble": {
+      "title": "Ensemble Methods",
+      "description": "Random Forest + Isolation Forest for comprehensive threat detection"
+    },
+    "zeroDay": {
+      "title": "Zero-Day Detection",
+      "description": "Anomaly detection for identifying previously unknown threats"
+    },
+    "explainable": {
+      "title": "Explainable AI",
+      "description": "Clear explanations for every security decision"
+    }
+  },
+  "footer": {
+    "tagline": "Advanced AI-Powered Cybersecurity Platform",
+    "description": "SecureLink protects millions of users worldwide with cutting-edge machine learning and real-time threat detection.",
+    "product": "Product",
+    "features": "Features",
+    "pricing": "Pricing",
+    "documentation": "Documentation",
+    "apiDocs": "API Docs",
+    "company": "Company",
+    "about": "About Us",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "security": "Security",
+    "copyright": "© 2024 SecureLink. All rights reserved."
+  },
+  "login": {
+    "title": "Sign in to SecureLink",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign In",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "forgotPassword": "Forgot password?"
+  },
+  "common": {
+    "language": "Language",
+    "selectLanguage": "Select Language",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit"
+  }
+}

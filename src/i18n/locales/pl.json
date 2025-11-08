@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Zaloguj się",
+    "dashboard": "Panel",
+    "settings": "Ustawienia",
+    "analytics": "Analityka"
+  },
+  "hero": {
+    "title": "Zaawansowana Ochrona Cyberbezpieczeństwa z AI",
+    "subtitle": "SecureLink wykorzystuje najnowocześniejsze uczenie maszynowe i głębokie sieci neuronowe do wykrywania phishingu, złośliwego oprogramowania i oszukańczych stron internetowych w czasie rzeczywistym z dokładnością 99%",
+    "scanButton": "Rozpocznij Skanowanie",
+    "learnMore": "Dowiedz się Więcej"
+  },
+  "urlAnalyzer": {
+    "title": "Analizator URL SecureLink",
+    "description": "Inteligentne wykrywanie oszustw - Wklej dowolny URL, link lub adres internetowy, aby przeanalizować potencjalne zagrożenia bezpieczeństwa",
+    "placeholder": "https://przyklad.com lub wklej podejrzany link tutaj",
+    "analyzeButton": "Analizuj Teraz",
+    "scanning": "Głębokie Skanowanie..."
+  },
+  "common": {
+    "language": "Język",
+    "selectLanguage": "Wybierz Język"
+  }
+}

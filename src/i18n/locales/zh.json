@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "登录",
+    "dashboard": "仪表板",
+    "settings": "设置",
+    "analytics": "分析"
+  },
+  "hero": {
+    "title": "先进的AI驱动网络安全保护",
+    "subtitle": "SecureLink使用尖端机器学习和深度神经网络实时检测网络钓鱼、恶意软件和欺诈网站，准确率达99%",
+    "scanButton": "开始安全扫描",
+    "learnMore": "了解更多"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL分析器",
+    "description": "智能欺诈检测 - 粘贴任何URL、链接或网址以分析潜在的安全威胁和风险",
+    "placeholder": "https://example.com 或在此粘贴可疑链接",
+    "analyzeButton": "立即分析",
+    "scanning": "深度扫描中..."
+  },
+  "common": {
+    "language": "语言",
+    "selectLanguage": "选择语言"
+  }
+}

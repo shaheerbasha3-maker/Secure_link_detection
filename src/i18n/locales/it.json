@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Accedi",
+    "dashboard": "Cruscotto",
+    "settings": "Impostazioni",
+    "analytics": "Analisi"
+  },
+  "hero": {
+    "title": "Protezione Avanzata di Cybersecurity con IA",
+    "subtitle": "SecureLink utilizza machine learning all'avanguardia e reti neurali profonde per rilevare phishing, malware e siti web fraudolenti in tempo reale con una precisione del 99%",
+    "scanButton": "Avvia Scansione di Sicurezza",
+    "learnMore": "Scopri di Più"
+  },
+  "urlAnalyzer": {
+    "title": "Analizzatore URL SecureLink",
+    "description": "Rilevamento intelligente delle frodi - Incolla qualsiasi URL, link o indirizzo web per analizzare potenziali minacce e rischi alla sicurezza",
+    "placeholder": "https://esempio.com o incolla un link sospetto qui",
+    "analyzeButton": "Analizza Ora",
+    "scanning": "Scansione Approfondita..."
+  },
+  "common": {
+    "language": "Lingua",
+    "selectLanguage": "Seleziona Lingua"
+  }
+}

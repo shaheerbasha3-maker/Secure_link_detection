@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "signIn": "Iniciar Sesión",
+    "dashboard": "Panel",
+    "settings": "Configuración",
+    "analytics": "Analíticas"
+  },
+  "hero": {
+    "title": "Protección Avanzada de Ciberseguridad con IA",
+    "subtitle": "SecureLink utiliza aprendizaje automático de vanguardia y redes neuronales profundas para detectar phishing, malware y sitios web fraudulentos en tiempo real con una precisión del 99%",
+    "scanButton": "Iniciar Escaneo de Seguridad",
+    "learnMore": "Más Información"
+  },
+  "urlAnalyzer": {
+    "title": "Analizador de URL SecureLink",
+    "description": "Detección inteligente de fraudes - Pegue cualquier URL, enlace o dirección web para analizar posibles amenazas y riesgos de seguridad",
+    "placeholder": "https://ejemplo.com o pegue un enlace sospechoso aquí",
+    "analyzeButton": "Analizar Ahora",
+    "scanning": "Escaneo Profundo...",
+    "testUrls": "URLs de Prueba para Demostración",
+    "safesite": "Sitio Seguro",
+    "mediumRisk": "Riesgo Medio",
+    "highRisk": "Riesgo Alto",
+    "criticalRisk": "Riesgo Crítico"
+  },
+  "common": {
+    "language": "Idioma",
+    "selectLanguage": "Seleccionar Idioma"
+  }
+}

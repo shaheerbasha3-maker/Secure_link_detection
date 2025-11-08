@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "התחברות",
+    "dashboard": "לוח בקרה",
+    "settings": "הגדרות",
+    "analytics": "ניתוח"
+  },
+  "hero": {
+    "title": "הגנת סייבר מתקדמת מבוססת AI",
+    "subtitle": "SecureLink משתמש בלמידת מכונה מתקדמת ורשתות עצביות עמוקות לזיהוי פישינג, תוכנות זדוניות ואתרי הונאה בזמן אמת בדיוק של 99%",
+    "scanButton": "התחל סריקת אבטחה",
+    "learnMore": "למידע נוסף"
+  },
+  "urlAnalyzer": {
+    "title": "מנתח URL של SecureLink",
+    "description": "זיהוי הונאה חכם - הדבק כל URL, קישור או כתובת אינטרנט כדי לנתח איומי אבטחה וסיכונים פוטנציאליים",
+    "placeholder": "https://example.com או הדבק קישור חשוד כאן",
+    "analyzeButton": "נתח עכשיו",
+    "scanning": "סריקה עמוקה..."
+  },
+  "common": {
+    "language": "שפה",
+    "selectLanguage": "בחר שפה"
+  }
+}

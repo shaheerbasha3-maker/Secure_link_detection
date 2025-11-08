@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Giriş Yap",
+    "dashboard": "Pano",
+    "settings": "Ayarlar",
+    "analytics": "Analitik"
+  },
+  "hero": {
+    "title": "Gelişmiş AI Destekli Siber Güvenlik Koruması",
+    "subtitle": "SecureLink, phishing, kötü amaçlı yazılım ve dolandırıcı web sitelerini %99 doğrulukla gerçek zamanlı olarak tespit etmek için son teknoloji makine öğrenimi ve derin sinir ağlarını kullanır",
+    "scanButton": "Güvenlik Taraması Başlat",
+    "learnMore": "Daha Fazla Bilgi"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL Analizörü",
+    "description": "Akıllı dolandırıcılık tespiti - Potansiyel güvenlik tehditlerini ve risklerini analiz etmek için herhangi bir URL, bağlantı veya web adresi yapıştırın",
+    "placeholder": "https://ornek.com veya şüpheli bir bağlantıyı buraya yapıştırın",
+    "analyzeButton": "Şimdi Analiz Et",
+    "scanning": "Derin Tarama..."
+  },
+  "common": {
+    "language": "Dil",
+    "selectLanguage": "Dil Seç"
+  }
+}

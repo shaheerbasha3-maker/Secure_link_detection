@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "로그인",
+    "dashboard": "대시보드",
+    "settings": "설정",
+    "analytics": "분석"
+  },
+  "hero": {
+    "title": "고급 AI 기반 사이버 보안 보호",
+    "subtitle": "SecureLink는 최첨단 머신 러닝과 딥 뉴럴 네트워크를 사용하여 피싱, 멀웨어 및 사기 웹사이트를 99% 정확도로 실시간 탐지합니다",
+    "scanButton": "보안 스캔 시작",
+    "learnMore": "자세히 알아보기"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL 분석기",
+    "description": "지능형 사기 탐지 - URL, 링크 또는 웹 주소를 붙여넣어 잠재적인 보안 위협과 위험을 분석하세요",
+    "placeholder": "https://example.com 또는 의심스러운 링크를 여기에 붙여넣으세요",
+    "analyzeButton": "지금 분석",
+    "scanning": "심층 스캔 중..."
+  },
+  "common": {
+    "language": "언어",
+    "selectLanguage": "언어 선택"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Bejelentkezés",
+    "dashboard": "Irányítópult",
+    "settings": "Beállítások",
+    "analytics": "Elemzés"
+  },
+  "hero": {
+    "title": "Fejlett MI-alapú Kibervédelmi Védelem",
+    "subtitle": "A SecureLink élvonalbeli gépi tanulást és mély neurális hálózatokat használ a phishing, rosszindulatú programok és csaló webhelyek valós idejű felismerésére 99%-os pontossággal",
+    "scanButton": "Biztonsági Vizsgálat Indítása",
+    "learnMore": "Tudj Meg Többet"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL Elemző",
+    "description": "Intelligens csalásfelismerés - Illesszen be bármilyen URL-t, linket vagy webcímet a potenciális biztonsági fenyegetések és kockázatok elemzéséhez",
+    "placeholder": "https://pelda.com vagy illesszen be egy gyanús linket ide",
+    "analyzeButton": "Elemzés Most",
+    "scanning": "Mély Vizsgálat..."
+  },
+  "common": {
+    "language": "Nyelv",
+    "selectLanguage": "Nyelv Kiválasztása"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Log Masuk",
+    "dashboard": "Papan Pemuka",
+    "settings": "Tetapan",
+    "analytics": "Analitik"
+  },
+  "hero": {
+    "title": "Perlindungan Keselamatan Siber Maju Dikuasakan AI",
+    "subtitle": "SecureLink menggunakan pembelajaran mesin terkini dan rangkaian neural dalam untuk mengesan phishing, perisian hasad dan laman web penipuan secara masa nyata dengan ketepatan 99%",
+    "scanButton": "Mulakan Imbasan Keselamatan",
+    "learnMore": "Ketahui Lebih Lanjut"
+  },
+  "urlAnalyzer": {
+    "title": "Penganalisis URL SecureLink",
+    "description": "Pengesanan penipuan pintar - Tampal sebarang URL, pautan atau alamat web untuk menganalisis potensi ancaman dan risiko keselamatan",
+    "placeholder": "https://contoh.com atau tampal pautan yang mencurigakan di sini",
+    "analyzeButton": "Analisis Sekarang",
+    "scanning": "Imbasan Mendalam..."
+  },
+  "common": {
+    "language": "Bahasa",
+    "selectLanguage": "Pilih Bahasa"
+  }
+}

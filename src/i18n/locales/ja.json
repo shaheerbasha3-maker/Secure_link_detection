@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "サインイン",
+    "dashboard": "ダッシュボード",
+    "settings": "設定",
+    "analytics": "分析"
+  },
+  "hero": {
+    "title": "高度なAI搭載サイバーセキュリティ保護",
+    "subtitle": "SecureLinkは最先端の機械学習とディープニューラルネットワークを使用して、フィッシング、マルウェア、詐欺ウェブサイトをリアルタイムで99%の精度で検出します",
+    "scanButton": "セキュリティスキャンを開始",
+    "learnMore": "詳細を見る"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URLアナライザー",
+    "description": "インテリジェント詐欺検出 - URL、リンク、ウェブアドレスを貼り付けて、潜在的なセキュリティ脅威とリスクを分析します",
+    "placeholder": "https://example.com または疑わしいリンクをここに貼り付けてください",
+    "analyzeButton": "今すぐ分析",
+    "scanning": "ディープスキャン中..."
+  },
+  "common": {
+    "language": "言語",
+    "selectLanguage": "言語を選択"
+  }
+}

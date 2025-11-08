@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Přihlásit se",
+    "dashboard": "Přehled",
+    "settings": "Nastavení",
+    "analytics": "Analytika"
+  },
+  "hero": {
+    "title": "Pokročilá Kyberbezpečnostní Ochrana s AI",
+    "subtitle": "SecureLink využívá špičkové strojové učení a hluboké neuronové sítě k detekci phishingu, malwaru a podvodných webových stránek v reálném čase s přesností 99%",
+    "scanButton": "Zahájit Bezpečnostní Skenování",
+    "learnMore": "Zjistit Více"
+  },
+  "urlAnalyzer": {
+    "title": "Analyzátor URL SecureLink",
+    "description": "Inteligentní detekce podvodů - Vložte jakékoli URL, odkaz nebo webovou adresu pro analýzu potenciálních bezpečnostních hrozeb a rizik",
+    "placeholder": "https://priklad.com nebo vložte podezřelý odkaz zde",
+    "analyzeButton": "Analyzovat Nyní",
+    "scanning": "Hloubkové Skenování..."
+  },
+  "common": {
+    "language": "Jazyk",
+    "selectLanguage": "Vyberte Jazyk"
+  }
+}

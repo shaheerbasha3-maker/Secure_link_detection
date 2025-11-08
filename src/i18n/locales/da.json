@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Log Ind",
+    "dashboard": "Dashboard",
+    "settings": "Indstillinger",
+    "analytics": "Analyse"
+  },
+  "hero": {
+    "title": "Avanceret AI-drevet Cybersikkerhedsbeskyttelse",
+    "subtitle": "SecureLink bruger banebrydende maskinlæring og dybe neurale netværk til at opdage phishing, malware og svigagtige websteder i realtid med 99% nøjagtighed",
+    "scanButton": "Start Sikkerhedsscanning",
+    "learnMore": "Læs Mere"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL-analysator",
+    "description": "Intelligent svindelopdagelse - Indsæt enhver URL, link eller webadresse for at analysere potentielle sikkerhedstrusler og risici",
+    "placeholder": "https://eksempel.com eller indsæt et mistænkeligt link her",
+    "analyzeButton": "Analyser Nu",
+    "scanning": "Dyb Scanning..."
+  },
+  "common": {
+    "language": "Sprog",
+    "selectLanguage": "Vælg Sprog"
+  }
+}

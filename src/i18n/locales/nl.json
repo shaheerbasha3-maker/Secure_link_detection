@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Inloggen",
+    "dashboard": "Dashboard",
+    "settings": "Instellingen",
+    "analytics": "Analyses"
+  },
+  "hero": {
+    "title": "Geavanceerde AI-Aangedreven Cyberbeveiliging",
+    "subtitle": "SecureLink gebruikt geavanceerde machine learning en diepe neurale netwerken om phishing, malware en frauduleuze websites in realtime te detecteren met 99% nauwkeurigheid",
+    "scanButton": "Start Beveiligingsscan",
+    "learnMore": "Meer Informatie"
+  },
+  "urlAnalyzer": {
+    "title": "SecureLink URL Analysator",
+    "description": "Intelligente fraudedetectie - Plak een URL, link of webadres om potentiële beveiligingsdreigingen en risico's te analyseren",
+    "placeholder": "https://voorbeeld.com of plak een verdachte link hier",
+    "analyzeButton": "Analyseer Nu",
+    "scanning": "Diepgaande Scan..."
+  },
+  "common": {
+    "language": "Taal",
+    "selectLanguage": "Selecteer Taal"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "signIn": "Đăng Nhập",
+    "dashboard": "Bảng Điều Khiển",
+    "settings": "Cài Đặt",
+    "analytics": "Phân Tích"
+  },
+  "hero": {
+    "title": "Bảo Vệ An Ninh Mạng Tiên Tiến Được Hỗ Trợ Bởi AI",
+    "subtitle": "SecureLink sử dụng máy học tiên tiến và mạng nơ-ron sâu để phát hiện lừa đảo, phần mềm độc hại và trang web gian lận theo thời gian thực với độ chính xác 99%",
+    "scanButton": "Bắt Đầu Quét Bảo Mật",
+    "learnMore": "Tìm Hiểu Thêm"
+  },
+  "urlAnalyzer": {
+    "title": "Trình Phân Tích URL SecureLink",
+    "description": "Phát hiện gian lận thông minh - Dán bất kỳ URL, liên kết hoặc địa chỉ web nào để phân tích các mối đe dọa và rủi ro bảo mật tiềm ẩn",
+    "placeholder": "https://vidu.com hoặc dán liên kết đáng ngờ vào đây",
+    "analyzeButton": "Phân Tích Ngay",
+    "scanning": "Quét Sâu..."
+  },
+  "common": {
+    "language": "Ngôn Ngữ",
+    "selectLanguage": "Chọn Ngôn Ngữ"
+  }
+}
