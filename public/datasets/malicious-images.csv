@@ -1,0 +1,26 @@
+File_Name,File_Type,Risk_Level,Risk_Score,Threat_Type,Malware_Family,Detection_Method,File_Size_KB
+infected_photo.jpg,JPEG,critical,98,Steganography Malware,Stegosploit.JS,steganography_detection,2048
+banner_ad.png,PNG,high,89,Embedded Script,JSDownloader,script_analysis,512
+profile_pic.gif,GIF,critical,95,Polyglot Exploit,GIFAR,polyglot_detection,1024
+vacation.bmp,BMP,high,87,EXIF Exploit,ExifMiner,metadata_analysis,4096
+document_scan.tiff,TIFF,critical,93,Buffer Overflow,TiffShell,vulnerability_scan,8192
+avatar.jpg,JPEG,medium,72,Suspicious Metadata,MetaTrack,metadata_analysis,256
+company_logo.png,PNG,critical,96,XSS Payload,PNGShell,script_analysis,128
+animated_banner.gif,GIF,high,88,Hidden Payload,GIFCrypt,steganography_detection,2048
+screenshot.png,PNG,critical,94,Ransomware Dropper,CryptoLocker.PNG,malware_signature,1536
+family_photo.jpg,JPEG,high,86,Trojan Downloader,JPEGTrojan,behavioral_analysis,3072
+wallpaper.bmp,BMP,critical,92,Remote Access Tool,BmpRAT,malware_signature,6144
+certificate.tiff,TIFF,high,85,Data Exfiltration,TiffStealer,behavioral_analysis,2560
+icon.png,PNG,critical,97,Cryptominer,PNGMiner,resource_analysis,64
+banner.jpg,JPEG,high,88,Keylogger,JPEGKey,behavioral_analysis,1024
+texture.bmp,BMP,critical,91,Backdoor,BmpDoor,malware_signature,5120
+medical_scan.tiff,TIFF,high,84,Information Stealer,MediThief,behavioral_analysis,10240
+emoji.png,PNG,medium,75,Tracking Pixel,AdTracker,metadata_analysis,32
+landscape.jpg,JPEG,critical,96,Rootkit,JPEGRoot,malware_signature,4096
+pattern.gif,GIF,high,87,Spyware,GIFSpy,behavioral_analysis,512
+chart.bmp,BMP,critical,93,Worm,BmpWorm,malware_signature,3072
+product_photo.jpg,JPEG,high,86,Banking Trojan,JPEGBank,behavioral_analysis,2048
+thumbnail.png,PNG,critical,95,Botnet Client,PNGBot,network_analysis,128
+animation.gif,GIF,high,89,Adware,GIFAd,behavioral_analysis,1536
+diagram.bmp,BMP,critical,94,Logic Bomb,BmpBomb,malware_signature,4608
+invoice_scan.tiff,TIFF,high,83,Phishing Redirect,TiffPhish,url_analysis,7168
