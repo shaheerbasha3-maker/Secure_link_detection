@@ -4,13 +4,17 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
+import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { ArrowLeft, Upload, AlertTriangle, Shield, FileText, Image, Video, Link, Globe, Lock } from 'lucide-react';
+import { ArrowLeft, Upload, AlertTriangle, Shield, FileText, Image, Video, Link, Globe, Lock, X } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const FileAnalysis = () => {
   const { fileType } = useParams();
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [input, setInput] = useState('');
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [results, setResults] = useState<any>(null);
@@ -121,8 +125,43 @@ const FileAnalysis = () => {
 
   const fileInfo = getFileTypeInfo(fileType || '');
 
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    const validFiles: File[] = [];
+    
+    files.forEach(file => {
+      const fileExt = '.' + file.name.split('.').pop()?.toLowerCase();
+      const isValidType = fileInfo.fileExtensions.some(ext => 
+        ext.startsWith('.') ? fileExt === ext : true
+      );
+      
+      if (isValidType || fileType === 'encrypted' || fileType === 'urls' || fileType === 'web-content') {
+        validFiles.push(file);
+      } else {
+        toast({
+          title: 'Invalid file type',
+          description: `${file.name} is not a supported file type for ${fileInfo.title}`,
+          variant: 'destructive',
+        });
+      }
+    });
+    
+    setUploadedFiles(prev => [...prev, ...validFiles]);
+  };
+
+  const removeFile = (index: number) => {
+    setUploadedFiles(prev => prev.filter((_, i) => i !== index));
+  };
+
   const simulateAnalysis = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() && uploadedFiles.length === 0) {
+      toast({
+        title: 'No content to analyze',
+        description: 'Please upload files or paste content to analyze',
+        variant: 'destructive',
+      });
+      return;
+    }
     
     setIsAnalyzing(true);
     setProgress(0);
@@ -134,6 +173,16 @@ const FileAnalysis = () => {
       await new Promise(resolve => setTimeout(resolve, 200));
     }
 
+    // Calculate file size from uploaded files
+    const totalSize = uploadedFiles.length > 0
+      ? uploadedFiles.reduce((acc, file) => acc + file.size, 0)
+      : (input.length * 2); // Approximate size for text content
+
+    const sizeInKB = totalSize / 1024;
+    const sizeDisplay = sizeInKB > 1024 
+      ? `${(sizeInKB / 1024).toFixed(2)} MB`
+      : `${sizeInKB.toFixed(2)} KB`;
+
     // Generate mock results based on file type
     const detectedThreats = fileInfo.specificThreats.slice(0, Math.floor(Math.random() * 3) + 1);
     const mockResults = {
@@ -141,8 +190,10 @@ const FileAnalysis = () => {
       threatsDetected: detectedThreats.length,
       fileInfo: {
         type: fileInfo.title,
-        size: `${Math.floor(Math.random() * 1000) + 100} KB`,
-        format: fileInfo.fileExtensions[0] || 'Unknown'
+        size: sizeDisplay,
+        format: uploadedFiles.length > 0 ? uploadedFiles[0].name.split('.').pop()?.toUpperCase() : fileInfo.fileExtensions[0] || 'Unknown',
+        filesAnalyzed: uploadedFiles.length || 1,
+        fileNames: uploadedFiles.length > 0 ? uploadedFiles.map(f => f.name).join(', ') : 'Text Content'
       },
       threats: detectedThreats,
       attackMethods: getAttackMethodology(detectedThreats),
@@ -252,12 +303,70 @@ const FileAnalysis = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <Textarea
-                placeholder={fileInfo.placeholder}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                className="min-h-[200px] resize-none"
-              />
+              {/* File Upload Section */}
+              <div className="space-y-3">
+                <label 
+                  htmlFor="file-upload" 
+                  className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-background hover:bg-accent/50 transition-colors"
+                >
+                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                    <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
+                    <p className="mb-2 text-sm text-muted-foreground">
+                      <span className="font-semibold">Click to upload</span> or drag and drop
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {fileInfo.fileExtensions.join(', ')}
+                    </p>
+                  </div>
+                  <Input
+                    id="file-upload"
+                    type="file"
+                    multiple
+                    accept={fileInfo.fileExtensions.filter(ext => ext.startsWith('.')).join(',') || '*'}
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
+                </label>
+
+                {/* Uploaded Files List */}
+                {uploadedFiles.length > 0 && (
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium">Uploaded Files ({uploadedFiles.length})</p>
+                    <div className="space-y-1 max-h-32 overflow-y-auto">
+                      {uploadedFiles.map((file, index) => (
+                        <div key={index} className="flex items-center justify-between p-2 bg-accent/20 rounded">
+                          <div className="flex items-center gap-2 flex-1 min-w-0">
+                            <FileText className="w-4 h-4 flex-shrink-0" />
+                            <span className="text-sm truncate">{file.name}</span>
+                            <span className="text-xs text-muted-foreground flex-shrink-0">
+                              ({(file.size / 1024).toFixed(2)} KB)
+                            </span>
+                          </div>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => removeFile(index)}
+                            className="h-6 w-6 p-0 flex-shrink-0"
+                          >
+                            <X className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Text Input Section */}
+              <div className="space-y-2">
+                <p className="text-xs text-muted-foreground">Or paste content below</p>
+                <Textarea
+                  placeholder={fileInfo.placeholder}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  className="min-h-[150px] resize-none"
+                />
+              </div>
               
               <div className="flex flex-wrap gap-2">
                 <Badge variant="secondary">Supported formats:</Badge>
@@ -268,11 +377,11 @@ const FileAnalysis = () => {
 
               <Button 
                 onClick={simulateAnalysis}
-                disabled={!input.trim() || isAnalyzing}
+                disabled={(input.trim() === '' && uploadedFiles.length === 0) || isAnalyzing}
                 className="w-full"
                 size="lg"
               >
-                {isAnalyzing ? 'Analyzing...' : `Analyze ${fileInfo.title.split(' ')[0]}`}
+                {isAnalyzing ? 'Analyzing...' : `Analyze ${uploadedFiles.length > 0 ? `${uploadedFiles.length} File(s)` : fileInfo.title.split(' ')[0]}`}
               </Button>
 
               {isAnalyzing && (
@@ -324,6 +433,14 @@ const FileAnalysis = () => {
                         <div>
                           <span className="text-muted-foreground">Size:</span>
                           <p className="font-medium">{results.fileInfo.size}</p>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">Files Analyzed:</span>
+                          <p className="font-medium">{results.fileInfo.filesAnalyzed}</p>
+                        </div>
+                        <div className="col-span-2">
+                          <span className="text-muted-foreground">File Name(s):</span>
+                          <p className="font-medium text-xs break-all">{results.fileInfo.fileNames}</p>
                         </div>
                       </div>
                     </CardContent>
