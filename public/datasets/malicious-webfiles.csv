@@ -1,0 +1,26 @@
+File_Name,File_Type,Risk_Level,Risk_Score,Threat_Type,Malware_Family,Detection_Method,File_Size_KB
+index.html,HTML,critical,97,XSS Injection,HTMLPhish,xss_detection,24
+styles.css,CSS,high,86,Keylogger CSS,CSSKeylog,css_analysis,12
+script.js,JavaScript,critical,98,Malicious JS,JS.Trojan.Agent,javascript_scan,67
+config.json,JSON,high,88,Data Exfiltration,JSON.Stealer,json_analysis,8
+sitemap.xml,XML,critical,95,XXE Injection,XML.XXE.Exploit,xxe_detection,16
+app.js,JavaScript,critical,96,Cryptominer,CoinHive.JS,mining_detection,145
+login.html,HTML,critical,97,Credential Harvester,PhishKit.Login,form_analysis,32
+theme.css,CSS,high,87,CSS Exploit,CSS.Import.Malware,import_scan,18
+api.js,JavaScript,critical,94,Backdoor,JS.Backdoor,code_obfuscation_check,89
+data.json,JSON,high,85,Malicious Payload,JSON.Payload,payload_analysis,45
+feed.xml,XML,critical,96,External Entity,XML.External.Exploit,entity_check,23
+main.js,JavaScript,critical,98,RAT Loader,JS.RAT.Loader,behavioral_scan,234
+payment.html,HTML,critical,97,Form Grabber,HTML.FormGrab,input_monitor,28
+animations.css,CSS,high,84,Resource Exhaustion,CSS.DoS,resource_analysis,56
+analytics.js,JavaScript,critical,95,Tracking Malware,JS.Tracker.Malicious,tracking_detection,78
+settings.json,JSON,critical,93,Config Exploit,JSON.ConfigHack,config_analysis,12
+rss.xml,XML,high,88,Feed Poisoning,XML.RSS.Poison,feed_analysis,34
+worker.js,JavaScript,critical,96,Web Worker Exploit,JS.Worker.Malware,worker_analysis,123
+dashboard.html,HTML,high,89,Iframe Injection,HTML.IframeHack,iframe_detection,45
+responsive.css,CSS,critical,92,Media Query Exploit,CSS.MediaHack,media_query_scan,29
+module.js,JavaScript,critical,97,ES6 Module Exploit,JS.Module.Trojan,module_analysis,167
+package.json,JSON,high,87,Dependency Confusion,JSON.DepConfusion,dependency_scan,6
+schema.xml,XML,critical,94,Schema Poisoning,XML.Schema.Poison,schema_validation,41
+library.js,JavaScript,critical,95,Supply Chain Attack,JS.SupplyChain,integrity_check,289
+template.html,HTML,critical,96,Template Injection,HTML.SSTI,template_analysis,38

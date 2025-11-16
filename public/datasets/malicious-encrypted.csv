@@ -1,0 +1,26 @@
+File_Name,File_Type,Risk_Level,Risk_Score,Threat_Type,Malware_Family,Detection_Method,File_Size_KB
+encrypted_data.zip,ZIP,critical,97,Ransomware Payload,Lockbit.ZIP,archive_analysis,2048
+secure_backup.rar,RAR,critical,96,Trojan Dropper,RAR.Trojan,compression_scan,4096
+confidential.7z,7ZIP,high,89,Password Stealer,7z.InfoStealer,behavioral_analysis,1536
+archive_2024.tar.gz,TAR.GZ,critical,95,Remote Shell,TarShell,archive_inspection,3072
+encrypted_file.aes,AES,critical,98,Cryptolocker,AES.RansomCrypt,encryption_analysis,512
+protected.pgp,PGP,high,87,Key Logger,PGP.KeyThief,pgp_analysis,256
+secure_doc.gpg,GPG,critical,94,Data Exfiltration,GPG.DataLeaker,gpg_inspection,768
+backup_files.zip,ZIP,critical,96,Worm Propagation,Worm.ZipBomb,zip_analysis,8192
+private_keys.rar,RAR,critical,97,Credential Theft,RAR.CredHarvest,credential_scan,128
+financial.7z,7ZIP,high,88,Banking Trojan,7z.BankBot,trojan_detection,2560
+contracts.tar.gz,TAR.GZ,critical,93,Botnet Client,Tar.BotClient,network_behavior,1024
+database_dump.aes,AES,critical,95,SQL Injection,AES.SQLi,injection_scan,4608
+company_secrets.pgp,PGP,high,86,Corporate Espionage,PGP.SpyAgent,espionage_detect,384
+sensitive_info.gpg,GPG,critical,92,APT Malware,GPG.APT,apt_detection,640
+project_files.zip,ZIP,critical,98,Zero-Day Exploit,ZIP.ZeroDay,exploit_analysis,1280
+source_code.rar,RAR,high,89,Supply Chain,RAR.SupplyChain,integrity_check,896
+encrypted_backup.7z,7ZIP,critical,94,Ransomware,7z.Ransomware,ransomware_scan,3584
+vpn_config.tar.gz,TAR.GZ,high,85,VPN Hijacker,Tar.VPNHack,vpn_analysis,192
+wallet_data.aes,AES,critical,97,Crypto Stealer,AES.CryptoThief,crypto_detection,64
+certificates.pgp,PGP,critical,96,Certificate Theft,PGP.CertStealer,cert_analysis,512
+logs_archive.gpg,GPG,high,87,Log Poisoning,GPG.LogPoison,log_analysis,2048
+client_data.zip,ZIP,critical,95,Data Breach,ZIP.DataBreach,breach_detection,1792
+user_files.rar,RAR,critical,93,Identity Theft,RAR.IDTheft,identity_scan,448
+system_backup.7z,7ZIP,high,88,Backdoor Access,7z.Backdoor,backdoor_scan,5120
+encrypted_mail.tar.gz,TAR.GZ,critical,91,Email Harvester,Tar.EmailThief,email_extraction,320

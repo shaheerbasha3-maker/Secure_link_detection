@@ -1,0 +1,26 @@
+File_Name,File_Type,Risk_Level,Risk_Score,Threat_Type,Malware_Family,Detection_Method,File_Size_KB
+invoice_2024.pdf,PDF,critical,97,JavaScript Exploit,PDF.Exploit.CVE-2023,javascript_analysis,1024
+quarterly_report.docx,DOCX,critical,96,Macro Malware,Emotet.Macro,macro_detection,512
+employee_data.xlsx,XLSX,critical,95,DDE Exploit,Excel4Macros,formula_analysis,2048
+presentation.pptx,PPTX,high,88,Embedded Executable,PPTXShell,embedded_file_scan,4096
+contract.pdf,PDF,critical,98,Ransomware Dropper,Ryuk.PDF,behavioral_analysis,768
+resume.doc,DOC,critical,94,Template Injection,CVE-2017-11882,vulnerability_scan,256
+financial_statement.xls,XLS,critical,93,Macro Virus,W97M.Downloader,macro_detection,1024
+training_slides.ppt,PPT,high,87,OLE Object Exploit,PPTVirus,ole_analysis,3072
+terms_conditions.pdf,PDF,critical,96,Form Field Exploit,PDF.FormExploit,form_analysis,512
+meeting_notes.docx,DOCX,high,89,XML Entity Injection,XXE.Docx,xml_analysis,384
+budget_2024.xlsx,XLSX,critical,95,Power Query Exploit,ExcelMiner,query_analysis,1536
+pitch_deck.pptx,PPTX,high,86,Embedded Phishing,PPTXPhish,url_analysis,2560
+certificate.pdf,PDF,critical,97,ActionScript Exploit,PDF.AS3Exploit,script_analysis,640
+job_offer.doc,DOC,critical,92,Zero-Day Exploit,CVE-2024-Unknown,heuristic_analysis,320
+inventory.xls,XLS,high,88,Hidden Sheet Malware,XLSHidden,sheet_analysis,896
+workshop.ppt,PPT,critical,94,ActiveX Control,PPT.ActiveX,activex_detection,2048
+tax_return.pdf,PDF,critical,98,PDF Reader Exploit,PDF.Buffer.Overflow,vulnerability_scan,1280
+proposal.docx,DOCX,high,87,Remote Template,RTInjection,template_analysis,448
+sales_data.xlsx,XLSX,critical,96,External Link Exploit,XLSXLink,link_analysis,1792
+training.pptx,PPTX,high,85,Multimedia Exploit,PPTXMedia,media_analysis,5120
+agreement.pdf,PDF,critical,95,Launch Action Exploit,PDF.Launch,action_analysis,896
+cv_template.doc,DOC,critical,93,Field Code Injection,DOC.FieldCode,field_analysis,272
+forecast.xls,XLS,high,89,Chart Exploit,XLSChart,chart_analysis,1024
+conference.ppt,PPT,critical,91,Slide Show Exploit,PPT.SlideShow,slideshow_analysis,2816
+manual.pdf,PDF,critical,97,Embedded File Exploit,PDF.EmbedExe,embedded_scan,2048

@@ -1,0 +1,26 @@
+File_Name,File_Type,Risk_Level,Risk_Score,Threat_Type,Malware_Family,Detection_Method,File_Size_MB
+tutorial_video.mp4,MP4,critical,96,Codec Exploit,CVE-2023-MP4,codec_analysis,45
+movie_trailer.avi,AVI,critical,95,Container Exploit,AVI.BufferOverflow,container_scan,120
+webinar_recording.mov,MOV,high,88,QuickTime Exploit,MOV.Exploit,quicktime_scan,67
+presentation.wmv,WMV,critical,94,WMV Vulnerability,WMV.ASF.Exploit,asf_analysis,89
+animation.flv,FLV,high,87,Flash Exploit,FLV.Flashback,flash_detection,34
+conference_call.mp4,MP4,critical,97,Subtitle Injection,SubRip.Malware,subtitle_scan,156
+demo_video.avi,AVI,high,89,Metadata Exploit,AVI.MetaHack,metadata_analysis,78
+product_showcase.mov,MOV,critical,93,AAC Exploit,MOV.AAC.Vuln,audio_codec_scan,92
+training_session.wmv,WMV,high,86,DRM Bypass,WMV.DRM.Crack,drm_analysis,145
+advertisement.flv,FLV,critical,95,Malvertising,FLV.AdMalware,network_analysis,23
+vlog_episode.mp4,MP4,critical,98,H264 Exploit,MP4.H264.Zero,video_codec_scan,234
+screen_recording.avi,AVI,high,88,Trojan Dropper,AVI.Trojan,behavioral_analysis,187
+interview.mov,MOV,critical,92,MPEG-4 Vulnerability,MOV.MPEG4.Vuln,format_analysis,103
+documentary.wmv,WMV,high,85,Stream Hijacking,WMV.Stream.Hijack,stream_analysis,456
+livestream_clip.flv,FLV,critical,96,Bot Command,FLV.BotNet,network_behavior,89
+gameplay_footage.mp4,MP4,critical,94,Cryptojacking,MP4.CryptoMiner,resource_monitor,312
+tutorial_series.avi,AVI,high,87,Keylogger,AVI.KeyStealer,input_monitor,156
+time_lapse.mov,MOV,critical,91,Backdoor,MOV.RAT,connection_monitor,267
+marketing_video.wmv,WMV,high,84,Spyware,WMV.InfoStealer,data_monitor,98
+viral_clip.flv,FLV,critical,97,Ransomware,FLV.Crypto.Lock,encryption_detect,67
+music_video.mp4,MP4,high,89,Adware Injection,MP4.AdWare,ad_injection_scan,189
+sports_highlight.avi,AVI,critical,93,Worm Propagation,AVI.Worm,replication_detect,145
+news_report.mov,MOV,high,86,Phishing Redirect,MOV.Phish,url_extraction,78
+weather_update.wmv,WMV,critical,95,Remote Access,WMV.RAT,remote_detect,56
+cooking_show.flv,FLV,high,88,Data Exfiltration,FLV.DataThief,network_monitor,123
