@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shield, Settings, BarChart3, Link2, FileText, Image, Video, Database, Lock, Globe, Eye, AlertTriangle, Clock, TrendingUp } from 'lucide-react';
+import { Shield, Settings, BarChart3, Link2, FileText, Image, Video, Database, Lock, Globe, Eye, AlertTriangle, Clock, TrendingUp, Network } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import URLAnalyzer from '@/components/URLAnalyzer';
@@ -65,6 +65,11 @@ const Dashboard = () => {
             </div>
 
             <div className="flex items-center gap-4">
+              <Button variant="ghost" size="sm" onClick={() => navigate('/class-diagram')}>
+                <Network className="w-4 h-4 mr-2" />
+                Class Diagram
+              </Button>
+              
               <Button variant="ghost" size="sm" onClick={() => navigate('/analytics')}>
                 <BarChart3 className="w-4 h-4 mr-2" />
                 Analytics
