@@ -13,6 +13,7 @@ import FileAnalysis from "./pages/FileAnalysis";
 import Settings from "./pages/Settings";
 import Analytics from "./pages/Analytics";
 import Datasets from "./pages/Datasets";
+import ClassDiagram from "./pages/ClassDiagram";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
             <Route path="/datasets" element={<ProtectedRoute><Datasets /></ProtectedRoute>} />
             <Route path="/analyze/:fileType" element={<ProtectedRoute><FileAnalysis /></ProtectedRoute>} />
+            <Route path="/class-diagram" element={<ProtectedRoute><ClassDiagram /></ProtectedRoute>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
